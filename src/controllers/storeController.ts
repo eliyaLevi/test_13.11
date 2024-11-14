@@ -14,15 +14,25 @@ router.get("/", async (req: Request, res: Response): Promise<void> => {
 
 router.patch("/buy/:id", async (req: Request, res: Response): Promise<void> => {
   try {
-    const idUser = req.params.id;
-    const userBuy= req.body;
+    const idUser  = req.params;// מקבל איידי של יוזר
+    const buy = req.body; // מקבל שם וכמות של נשק
+    console.log(idUser);
+    console.log(buy);
     
-    const user = await buyNewMissille(userBuy);
+    
+    
+    const user = await buyNewMissille(buy,idUser);
     
     res.json(user);
   } catch (error: any) {
     console.error(error.message);
   }
 });
+
+
+export const buyMissile = async (req: Request, res: Response): Promise<void> => {
+
+  
+}
 
 export default router;
