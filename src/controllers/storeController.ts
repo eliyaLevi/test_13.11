@@ -6,6 +6,8 @@ const router: IRouter = express.Router();
 router.get("/", async (req: Request, res: Response): Promise<void> => {
   try {
     const all = await getAllMissile();
+    console.log("--------------",all);
+    
     res.json(all);
   } catch (error: any) {
     console.error(error.message);
@@ -16,8 +18,7 @@ router.patch("/buy/:id", async (req: Request, res: Response): Promise<void> => {
   try {
     const idUser  = req.params;// מקבל איידי של יוזר
     const buy = req.body; // מקבל שם וכמות של נשק
-    console.log(idUser);
-    console.log(buy);
+   
     
     
     
@@ -30,9 +31,5 @@ router.patch("/buy/:id", async (req: Request, res: Response): Promise<void> => {
 });
 
 
-export const buyMissile = async (req: Request, res: Response): Promise<void> => {
-
-  
-}
 
 export default router;

@@ -8,7 +8,7 @@ intercepts: [{type:string}]
 price:number
 }
 
-const userSchema: Schema = new Schema({
+const missileSchema: Schema = new Schema({
     name: { type: String, required: true },
     description: { type: String },
     speed: { type: Number, required: true },
@@ -16,4 +16,4 @@ const userSchema: Schema = new Schema({
     price: {type: Number}
 });
 
-export default mongoose.model<IMissile>("Missile", userSchema);
+export default mongoose.model<IMissile>("Missile", missileSchema);

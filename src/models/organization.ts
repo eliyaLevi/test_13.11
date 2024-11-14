@@ -6,10 +6,13 @@ export interface Iorganization extends Document {
   budget: number;
 }
 
-const userSchema: Schema = new Schema({
+const orgSchema: Schema = new Schema({
   name: { type: String, required: true },
-  resources: { type: [{ String }], required: true },
+  resources: { type: [{ name: String,
+    amount: Number}], required: true },
   budget: { type: Number, required: true },
 });
 
-export default mongoose.model<Iorganization>("organization", userSchema);
+export default mongoose.model<Iorganization>("organization", orgSchema);
+
+
